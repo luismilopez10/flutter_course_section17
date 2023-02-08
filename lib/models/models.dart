@@ -1,0 +1,1 @@
+export 'package:seccion17_newsapp/models/news_models.dart';

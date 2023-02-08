@@ -1,0 +1,1 @@
+export 'package:seccion17_newsapp/services/news_service.dart';

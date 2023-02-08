@@ -4,15 +4,15 @@ import 'package:provider/provider.dart';
 import 'screens/screens.dart';
 import 'providers/providers.dart';
 import 'share_preferences/preferences.dart';
+import 'services/services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Preferences.init();
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider(
-        create: (_) => ThemeProvider(isDarkmode: Preferences.isDarkmode),
-      )
+      ChangeNotifierProvider(create: (_) => ThemeProvider(isDarkmode: Preferences.isDarkmode),),
+      ChangeNotifierProvider(create: (_) => NewsService(),),
     ],
     child: const MyApp(),
   ));

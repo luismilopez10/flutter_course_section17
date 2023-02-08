@@ -17,10 +17,12 @@ class _Tab1ScreenState extends State<Tab1Screen> with AutomaticKeepAliveClientMi
   Widget build(BuildContext context) {
     final newsService = Provider.of<NewsService>(context);
 
-    return Scaffold(
-      body: newsService.headlines.isEmpty
-      ? const Center(child: CircularProgressIndicator(),)
-      : SafeArea(child: NewsList(newsService.headlines)),
+    return SafeArea(
+      child: Scaffold(
+        body: newsService.headlines.isEmpty
+        ? const Center(child: CircularProgressIndicator(),)
+        : NewsList(newsService.headlines),
+      ),
     );
   }
   

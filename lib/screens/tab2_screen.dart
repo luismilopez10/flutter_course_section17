@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:seccion17_newsapp/services/services.dart';
+import 'package:seccion17_newsapp/widgets/widgets.dart';
 
 class Tab2Screen extends StatelessWidget {
   static const String routerName = 'Tab2';
@@ -7,9 +10,19 @@ class Tab2Screen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const Center(
-         child: Text('Tab2Screen'),
+    final newsService = Provider.of<NewsService>(context);
+
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            CategoryList(),
+            const Divider(thickness: 1,),
+            newsService.getArticlesBySelectedCategory.isEmpty
+              ? const Expanded(child: Center(child: CircularProgressIndicator(),))
+              : Expanded(child: NewsList(newsService.getArticlesBySelectedCategory)),
+          ],
+        ),
       ),
     );
   }

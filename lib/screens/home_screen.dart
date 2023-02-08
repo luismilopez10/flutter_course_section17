@@ -21,23 +21,23 @@ class _HomeScreenState extends State<HomeScreen> {
     return ChangeNotifierProvider(
       create: (_) => NavigationProvider(),
       child: Scaffold(
-        // appBar: AppBar(
-        //   title: const Text('Home'),
-        //   leading: IconButton(
-        //     icon: Icon(Preferences.isDarkmode
-        //       ? Icons.light_mode_outlined
-        //       : Icons.dark_mode_outlined),
-        //     onPressed: () {
-        //       Preferences.isDarkmode = !Preferences.isDarkmode;
-        //       final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+        appBar: AppBar(
+          title: const Text('Home'),
+          leading: IconButton(
+            icon: Icon(Preferences.isDarkmode
+              ? Icons.light_mode_outlined
+              : Icons.dark_mode_outlined),
+            onPressed: () {
+              Preferences.isDarkmode = !Preferences.isDarkmode;
+              final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
     
-        //       Preferences.isDarkmode
-        //         ? themeProvider.setDarkmode()
-        //         : themeProvider.setLightmode();
-        //       setState(() {});
-        //     },
-        //   ),
-        // ),
+              Preferences.isDarkmode
+                ? themeProvider.setDarkmode()
+                : themeProvider.setLightmode();
+              setState(() {});
+            },
+          ),
+        ),
         body: _Pages(),
         bottomNavigationBar: _Navigation(),
       ),

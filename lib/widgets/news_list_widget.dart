@@ -10,6 +10,7 @@ class NewsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      physics: const BouncingScrollPhysics(),
       padding: const EdgeInsets.only(left: 20, top: 30, right: 20),
       itemCount: news.length,
       itemBuilder: (context, index) {
@@ -103,7 +104,7 @@ class _ImageCard extends StatelessWidget {
         child: news.urlToImage != null
           ? FadeInImage(
               fit: BoxFit.cover,
-              placeholder: const AssetImage('assests/images/giphy.gif'),
+              placeholder: const AssetImage('assets/images/giphy.gif'),
               image: NetworkImage(news.urlToImage!))
           : const Image(            
               fit: BoxFit.cover,
